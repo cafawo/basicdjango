@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+<head>
+<title>BasicDjango form</title>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+</head>
 
 <div id="header">
     <div id="branding">
@@ -10,7 +13,6 @@
 
 <div id="content">
     <h1>This is a simple input form</h1>
-    
     <form action="/form/" method="post">
         {% csrf_token %}
         <!--{{ form }}-->
@@ -18,8 +20,8 @@
         <table style="width:100%, align:left">
             {{ form.as_table }}
         </table>
-        
-        <input type="submit" value="Submit and add up numbers">
-        <p>{{ reply_text }}</p>
+        <input type="submit" value="Submit and calculate">
     </form>
+    <p>{{ reply_text }}</p>
 </div>
+

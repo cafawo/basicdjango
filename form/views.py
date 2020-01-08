@@ -11,19 +11,15 @@ def index(request):
         form = SomeForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # display submitted data:
-            #return HttpResponse(f"Submission from:  {form.cleaned_data['last_name']}")
-            
             # extract data from input form
             added_numbers = form.cleaned_data['first_number'] + form.cleaned_data['second_number']
-            reply_text = f"Submission from:  {form.cleaned_data['last_name']} = {added_numbers}"
+            reply_text = f"Submission from:  {form.cleaned_data['last_name']} yields {added_numbers}"
             # reset form
-            form = SomeForm()
+            if form.cleaned_data['reset_form']:
+                form = SomeForm()
             # display data and empty form
             return render(request, 'form.html', {'reply_text': reply_text, 'form': form})
-
     # if a GET (or any other method) we'll create a blank form
     else:
         form = SomeForm()
-
     return render(request, 'form.html', {'form': form})

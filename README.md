@@ -2,10 +2,12 @@
 
 The idea here is to have a template like minimum working example for Django in order to quickly get going with a simple (prototype) front-end.
 
-This project (so far) includes:
-* a simple input form (data input)
-* basic CSS styling
-* result output
+This project (so far) includes
+* a simple input form (data input),
+* basic CSS styling,
+* result output,
+and should look like this:
+![form](form.PNG)
 
 
 ## Requirements:
@@ -48,7 +50,6 @@ http://127.0.0.1:8000/form
 http://127.0.0.1:8000/admin
 ```
 
-
 # More fun with Django
 A proper and very well written tutorial is available at: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
 
@@ -74,6 +75,15 @@ This will create a project folder including manage.py, which is a wrapper for dj
 Each project (e.g. basicdjango) can contain multiple apps (e.g. blog, store). In this example, "form" is an app.
 ```
 python manage.py startapp form
+```
+
+### Forms
+In this example we define a form class in ``form/forms.py``. More information at:
+* https://docs.djangoproject.com/en/2.2/topics/forms/
+* https://docs.djangoproject.com/en/2.2/ref/forms/fields/
+In ``form/views.py`` we then render the form via 
+```python
+render(request, 'form.html', {'form': form})
 ```
 
 
