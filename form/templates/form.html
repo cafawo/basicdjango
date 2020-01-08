@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+
+<div id="header">
+    <div id="branding">
+        <h1 id="site-name">This is a magnificent header</h1>
+    </div>
+</div>
+
+<div id="content">
+    <h1>This is a simple input form</h1>
+    
+    <form action="/form/" method="post">
+        {% csrf_token %}
+        <!--{{ form }}-->
+        <!--{{ form.as_p }}-->
+        <table style="width:100%, align:left">
+            {{ form.as_table }}
+        </table>
+        
+        <input type="submit" value="Submit and add up numbers">
+        <p>{{ reply_text }}</p>
+    </form>
+</div>
