@@ -6,7 +6,9 @@ This project (so far) includes
 * a simple input form (data input),
 * basic CSS styling,
 * result output,
+
 and should look like this:
+
 ![form](form.PNG)
 
 
