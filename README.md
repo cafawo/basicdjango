@@ -93,7 +93,7 @@ render(request, 'form.html', {'form': form})
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'firstdjango',
+        'NAME': 'basicdjango',
         'USER': 'postgres',
         'PASSWORD': 'password',
         'HOST': 'localhost',

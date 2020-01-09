@@ -13,7 +13,7 @@ def index(request):
         if form.is_valid():
             # extract data from input form
             added_numbers = form.cleaned_data['first_number'] + form.cleaned_data['second_number']
-            reply_text = f"Submission from:  {form.cleaned_data['last_name']} yields {added_numbers}"
+            reply_text = f"Submission from  {form.cleaned_data['last_name']} yields {added_numbers}"
             # reset form
             if form.cleaned_data['reset_form']:
                 form = SomeForm()
