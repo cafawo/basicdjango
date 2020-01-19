@@ -24,7 +24,7 @@ conda env create -f django.yml
 ```
 conda activate django
 ```
-2. Migrate data base (SQLite by default, see below how to use PostgreSQL)
+2. Migrate data base (SQLite by default, see below how to use PostgreSQL). Hint: check out http://inloop.github.io/sqlite-viewer/ to see SQLite contents
 ```
 python manage.py migrate
 ```
@@ -123,7 +123,7 @@ python manage.py sqlmigrate form 0001
 ```
 python manage.py migrate
 ```
-
+The migrate command will only run migrations for apps in settings.py: INSTALLED_APPS.
 
 
 

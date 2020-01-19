@@ -1,6 +1,13 @@
-# https://docs.djangoproject.com/en/2.2/topics/forms/
-# https://docs.djangoproject.com/en/2.2/ref/forms/fields/
+"""This is a simple form that collects data
 
+# Ressources
+https://docs.djangoproject.com/en/2.2/topics/forms/
+https://docs.djangoproject.com/en/2.2/ref/forms/fields/
+
+This is a stand alone form, alternatively, it could also be created from a Model:
+https://docs.djangoproject.com/en/3.0/topics/forms/modelforms/
+"""
+#
 from django import forms
 
 class SomeForm(forms.Form):
