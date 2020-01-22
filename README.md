@@ -4,6 +4,7 @@ The idea here is to have a template like minimum working example for Django in o
 
 This project (so far) includes
 * a simple input form (data input),
+* a basic data model
 * basic CSS styling,
 * result output,
 
@@ -53,7 +54,6 @@ http://127.0.0.1:8000/admin
 ```
 
 # More fun with Django
-A proper and very well written tutorial is available at: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
 
 
 ## MTV (Model Template View) design priciple:
@@ -83,6 +83,7 @@ python manage.py startapp form
 In this example we define a form class in ``form/forms.py``. More information at:
 * https://docs.djangoproject.com/en/2.2/topics/forms/
 * https://docs.djangoproject.com/en/2.2/ref/forms/fields/
+
 In ``form/views.py`` we then render the form via 
 ```python
 render(request, 'form.html', {'form': form})
@@ -126,6 +127,34 @@ python manage.py migrate
 The migrate command will only run migrations for apps in settings.py: INSTALLED_APPS.
 
 
+## Admin site integration
+1. Add the data model of our form to the admin site, in ``form/admin.py``:
+```python
+from django.contrib import admin
 
+# Register your models here.
+from .models import SomeModel  # <-- NEW
+admin.site.register(SomeModel)  # <-- NEW
+```
+2. Try the admin functions: http://127.0.0.1:8000/admin
+
+
+## Test your site on a local network
+Note that the default IP address, 127.0.0.1, is not accessible from other machines on your network. To make your development server viewable to other machines on the network, use its own IP address (e.g. 192.168.2.1) or 0.0.0.0.
+1. Find your IP (e.g. ipconfig)
+2. Add your ip to ``basicdjango/settings.py``, e.g.
+```python
+ALLOWED_HOSTS = ['192.168.2.1']
+```
+3. Run server
+```
+python manage.py runserver 0.0.0.0:8000
+```
+4. Access the form from another device: http://192.168.2.1.8:8000/form
+
+
+# Further ressources
+* Very well written tutorial that covers all the basics: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+* A nice blog project: https://djangocentral.com/building-a-blog-application-with-django/
 
 

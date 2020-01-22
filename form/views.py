@@ -44,7 +44,7 @@ def index(request):
                 form = SomeForm()
             
             # display data and empty form
-            reply_text = f"Submission from  {form.cleaned_data['last_name']} yields {added_numbers}"
+            reply_text = f"Numbers from  {form.cleaned_data['last_name']} yield {added_numbers}"
             
             return render(request, 'form.html', {'reply_text': reply_text, 'form': form})
             
