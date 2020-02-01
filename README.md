@@ -4,7 +4,8 @@ The idea here is to have a template like minimum working example for Django in o
 
 This project (so far) includes
 * a simple input form (data input),
-* a basic data model
+* a basic data model,
+* admin site integration,
 * basic CSS styling,
 * result output,
 

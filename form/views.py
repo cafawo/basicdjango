@@ -30,7 +30,7 @@ def index(request):
             #latest_entry = SomeModel.objects.latest()
             #added_numbers += latest_entry.first_number
             
-            # save to DB
+            # save to DB model
             new_submission = SomeModel()
             new_submission.date_submitted = timezone.now()
             new_submission.first_name = form.cleaned_data['first_name']
@@ -39,12 +39,19 @@ def index(request):
             new_submission.second_number = form.cleaned_data['second_number']
             new_submission.save()
             
+            # query from entries in DB
+            total_submitted = 0
+            # see: https://docs.djangoproject.com/en/3.0/topics/db/queries/
+            # for raw SQL query see: https://docs.djangoproject.com/en/3.0/topics/db/sql/
+            for obj in SomeModel.objects.all():
+                total_submitted += obj.first_number + obj.second_number
+            
+            # create response text
+            reply_text = f"Numbers from  {form.cleaned_data['last_name']} yield {added_numbers:,.2f}! As of {timezone.now().date()}, the total from all submissions, including this one, is {total_submitted:,.2f}"
+            
             # reset form
             if form.cleaned_data['reset_form']:
                 form = SomeForm()
-            
-            # display data and empty form
-            reply_text = f"Numbers from  {form.cleaned_data['last_name']} yield {added_numbers}"
             
             return render(request, 'form.html', {'reply_text': reply_text, 'form': form})
             
