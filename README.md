@@ -98,7 +98,8 @@ Site templates, at their most basic, are HTML files that are displayed by your b
 A template tag is surrounded by {% and %}. A template tag does something, e.g.:
 * Display Logic. E.g. ``{% if %}...{% endif %}``
 * Loop Control. E.g. ``{% for x in y %}...{% endfor %}``
-A template variable is surrounded by {{ and }}.  A template variable is something, e.g.:
+
+A template variable is surrounded by {{ and }}. A template variable is something, e.g.:
 * Simple Variable. E.g. ``{{ title }}``
 * Object Attribute. E.g. ``{{ page.title }}``
 * Dictionary Lookup. E.g. ``{{ dict.key }}``
