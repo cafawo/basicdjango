@@ -90,8 +90,24 @@ In ``form/views.py`` we then render the form via
 render(request, 'form.html', {'form': form})
 ```
 
+### Templates
+See https://djangobook.com/mdj2-django-templates/
+
+Site templates, at their most basic, are HTML files that are displayed by your browser. Django’s approach to web design is simple—keep Django logic and code separate from design. It’s very important to understand that Django’s templates are not simply Python code embedded into HTML; it’s not actually possible to execute Python code in a Django template.
+
+A template tag is surrounded by {% and %}. A template tag does something, e.g.:
+* Display Logic. E.g. ``{% if %}...{% endif %}``
+* Loop Control. E.g. ``{% for x in y %}...{% endfor %}``
+A template variable is surrounded by {{ and }}.  A template variable is something, e.g.:
+* Simple Variable. E.g. ``{{ title }}``
+* Object Attribute. E.g. ``{{ page.title }}``
+* Dictionary Lookup. E.g. ``{{ dict.key }}``
+* List Index. E.g. ``{{ list_items.0 }}``
+
 
 ## Migrate to PostgreSQL
+Check this link if you want to use multiple DBs: https://docs.djangoproject.com/en/3.0/topics/db/multi-db/
+Or this link for multiple Posgtres schemas: https://www.amvtek.com/blog/posts/2014/Jun/13/accessing-multiple-postgres-schemas-from-django/
 1. Change DATABASES in basicdjango/settings.py:
 ```python
 DATABASES = {
@@ -154,8 +170,26 @@ python manage.py runserver 0.0.0.0:8000
 4. Access the form from another device: http://192.168.2.1.8:8000/form
 
 
-# Further ressources
+## Integrate existing data base (model)
+It is possible to integrate Django into legacy databases. 
+1. Set up database connection for Django to connect to existing database in ``settings.py`` file.
+2. Auto-generate models from an existing database via inspectdb.
+```
+python manage.py inspectdb
+```
+2.1 You can save this as a file by using standard Unix output redirection.
+```
+python manage.py inspectdb > models.py
+```
+2.2 You can pass table names as an argument.
+```
+python manage.py inspectdb table1 table2
+```
+https://docs.djangoproject.com/en/3.0/ref/django-admin/#django-admin-inspectdb
+
+
+# Further resources
 * Very well written tutorial that covers all the basics: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
 * A nice blog project: https://djangocentral.com/building-a-blog-application-with-django/
-
+* Integrating existing DBs: https://dev.to/idrisrampurawala/creating-django-models-of-an-existing-db-288m
 
