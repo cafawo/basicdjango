@@ -28,6 +28,7 @@ conda activate django
 ```
 2. Migrate data base (SQLite by default, see below how to use PostgreSQL). Hint: check out http://inloop.github.io/sqlite-viewer/ to see SQLite contents
 ```
+python manage.py makemigrations form
 python manage.py migrate
 ```
 3. Create superuser (you could skip this step)
