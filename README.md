@@ -45,7 +45,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 System check identified no issues (0 silenced).
 January 06, 2020 - 13:28:11
-Django version 2.2.5, using settings 'firstdjango.settings'
+Django version 2.2.5, using settings 'basicdjango.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
