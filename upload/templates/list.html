@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>BasicDjango upload</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/fonts.css">
+</head>
+
+<body class=" dashboard"  data-admin-utc-offset="0">
+<div id="container">
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name">BasicDjango</h1>
+        </div>
+    </div>
+    
+    <div id="content" class="colMS">
+        <h1>This is a list of previously uploaded files</h1>
+        
+        <!-- List of uploaded documents -->
+        {% if documents %}
+            <ul>
+                {% for document in documents %}
+                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %}
+
+        <h1>Here you can upload a new file</h1>
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'list' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+    </div>
+    
+</div>
+</body>

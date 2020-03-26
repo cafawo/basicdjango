@@ -8,46 +8,46 @@
 </head>
 
 <body class=" dashboard"  data-admin-utc-offset="0">
+
 <div id="container">
-
-<div id="header">
-    <div id="branding">
-        <h1 id="site-name">BasicDjango</h1>
-    </div>
-</div>
-
-<div id="content" class="colMS">
-     <h1>Submit your lucky numbers</h1>
-     
-    <div id="content-main">
-        <div class="app-auth module">
-            <form action="/form/" method="post">
-                {% csrf_token %}
-                <!--{{ form }}-->
-                <!--{{ form.as_p }}-->
-                <table>
-                    <caption>
-                        Lucky number form
-                    </caption>
-                    {{ form.as_table }}
-                </table>
-                <input type="submit" value="Submit and calculate">
-            </form>
-            <p>{{ reply_text }}</p>
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name">BasicDjango</h1>
         </div>
     </div>
-
-    <div id="content-related">
-        <div class="module" id="recent-actions-module">
-            <h2>Contextual help</h2>
-            <h3>Names</h3>
-            <p>e.g. Jane Doe</p>
-            <h3>Numbers</h3>
-            <p>Any real number will do</p>
+    
+    <div id="content" class="colMS">
+        <h1>Submit your lucky numbers</h1>
+         
+        <div id="content-main">
+            <div class="app-auth module">
+                <form action="/form/" method="post">
+                    {% csrf_token %}
+                    <!--{{ form }}-->
+                    <!--{{ form.as_p }}-->
+                    <table>
+                        <caption>
+                            Lucky number form
+                        </caption>
+                        {{ form.as_table }}
+                    </table>
+                    <input type="submit" value="Submit and calculate">
+                </form>
+                <p>{{ reply_text }}</p>
+            </div>
         </div>
+        
+        <div id="content-related">
+            <div class="module" id="recent-actions-module">
+                <h2>Contextual help</h2>
+                <h3>Names</h3>
+                <p>e.g. Jane Doe</p>
+                <h3>Numbers</h3>
+                <p>Any real number will do</p>
+            </div>
+        </div>
+        <br class="clear">
     </div>
-    <br class="clear">
 </div>
 
-</div>
 </body>

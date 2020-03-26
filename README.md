@@ -4,10 +4,11 @@ The idea here is to have a template like minimum working example for Django in o
 
 This project (so far) includes
 * a simple input form (data input),
+* a simple file upload form,
 * a basic data model,
 * admin site integration,
 * basic CSS styling,
-* result output,
+* basic computations and result output.
 
 and should look like this:
 
@@ -198,9 +199,8 @@ There are only two changes you have to make to this project:
 ```python
 DEBUG = False  # <- CHANGE
 ALLOWED_HOSTS = ["myusername.pythonanywhere.com"]  # <- CHANGE
-STATIC_ROOT = '/home/myusername/basicdjango/static/'  # <- NEW
 ```
-2. Get the required static files (CSS). In the pythonanywhere console run
+2. Get the required static files (CSS), i.e. open a console in the project dir and run
 ```
 python manage.py collectstatic
 ```

@@ -14,14 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include  # <--- NEW
+from django.urls import path, include  # <--NEW
 
-admin.site.site_header = "BasicDjango Admin"  # <--- NEW
-admin.site.site_title = "BasicDjango Admin Portal"  # <--- NEW
-admin.site.index_title = "Welcome to BasicDjango"  # <--- NEW
+admin.site.site_header = "BasicDjango Admin"  # <-- NEW
+admin.site.site_title = "BasicDjango Admin Portal"  # <--NEW
+admin.site.index_title = "Welcome to BasicDjango"  # <--NEW
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('form/', include('form.urls')),  # <--- NEW
-    #path('', include('form.urls')),  # <--- NEW, in case you want to redirect to the form directly
+    path('form/', include('form.urls')),  # <--NEW
+    #path('', include('form.urls')),  # <--NEW, in case you want to redirect to the form directly
+    path('upload/', include('upload.urls'))
 ]
+
+
+#%% NEW this is a short cut to serve (uploaded) media directly
+# Background: Django does not serve MEDIA_ROOT by default. That would be dangerous in production environment.
+from django.conf import settings  # <-- NEW
+from django.conf.urls.static import static  # <-- NEW
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
