@@ -158,20 +158,6 @@ admin.site.register(SomeModel)  # <-- NEW
 2. Try the admin functions: http://127.0.0.1:8000/admin
 
 
-## Test your site on a local network
-Note that the default IP address, 127.0.0.1, is not accessible from other machines on your network. To make your development server viewable to other machines on the network, use its own IP address (e.g. 192.168.2.1) or 0.0.0.0.
-1. Find your IP (e.g. ipconfig)
-2. Add your ip to ``basicdjango/settings.py``, e.g.
-```python
-ALLOWED_HOSTS = ['192.168.2.1']
-```
-3. Run server
-```
-python manage.py runserver 0.0.0.0:8000
-```
-4. Access the form from another device: http://192.168.2.1.8:8000/form
-
-
 ## Integrate existing data base (model)
 It is possible to integrate Django into legacy databases. 
 1. Set up database connection for Django to connect to existing database in ``settings.py`` file.
@@ -188,6 +174,36 @@ python manage.py inspectdb > models.py
 python manage.py inspectdb table1 table2
 ```
 https://docs.djangoproject.com/en/3.0/ref/django-admin/#django-admin-inspectdb
+
+
+## Test your site on a local network
+Note that the default IP address, 127.0.0.1, is not accessible from other machines on your network. To make your development server viewable to other machines on the network, use its own IP address (e.g. 192.168.2.1) or 0.0.0.0.
+1. Find your IP (e.g. ipconfig)
+2. Add your ip to ``basicdjango/settings.py``, e.g.
+```python
+ALLOWED_HOSTS = ['192.168.2.1']
+```
+3. Run server
+```
+python manage.py runserver 0.0.0.0:8000
+```
+4. Access the form from another device: http://192.168.2.1.8:8000/form
+
+
+## Test you site on https://www.pythonanywhere.com/
+Pythonanywhere has a free tier hosting service for python applications (incl. django). A complete guide can be found here: https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
+
+There are only two changes you have to make to this project:
+1. Adjust ``basicdjango.settings.py``
+```python
+DEBUG = False  # <- CHANGE
+ALLOWED_HOSTS = ["myusername.pythonanywhere.com"]  # <- CHANGE
+STATIC_ROOT = '/home/myusername/basicdjango/static/'  # <- NEW
+```
+2. Get the required static files (CSS). In the pythonanywhere console run
+```
+python manage.py collectstatic
+```
 
 
 # Further resources
