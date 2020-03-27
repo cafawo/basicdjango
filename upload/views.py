@@ -14,6 +14,9 @@ def list(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.file_name = newdoc.docfile.name  # <-- OPTIONAL
+            newdoc.file_type = newdoc.docfile.name.split('.')[-1]  # <-- OPTIONAL
+            newdoc.file_size = newdoc.docfile.size / 1000  # <-- OPTIONAL
             newdoc.save()
 
             # Redirect to the document list after POST
