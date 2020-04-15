@@ -20,6 +20,10 @@ and should look like this:
 ```
 conda env create -f django.yml
 ```
+* Some of the advanced features (e.g. report or ip restrictions) require django extensions that are not available via conda and must be installed via PIP (see https://pip.pypa.io/en/stable/reference/pip_freeze/).
+```
+pip install -r requirements.txt
+```
 
 
 ## Quick start:
@@ -205,6 +209,26 @@ ALLOWED_HOSTS = ["myusername.pythonanywhere.com"]  # <- CHANGE
 ```
 python manage.py collectstatic
 ```
+
+
+## Access data model with django-report-builder 
+* GitHub: https://github.com/burke-software/django-report-builder
+* Docs: https://django-report-builder.readthedocs.io/en/latest/#django-report-builder-documentation
+
+
+## Restrict ip range with
+* https://pypi.org/project/django-ip-restriction/
+* In settings.py add
+```python
+MIDDLEWARE_CLASSES = [
+    ...
+    'ip_restriction.IpWhitelister',
+    ...
+]
+
+ALLOWED_IPS = ['192.168.0.0/8', '127.0.0.0/2']
+```
+* Use CIDR notation to define ip addresses/ranges (see https://www.ipaddressguide.com/cidr)
 
 
 # Further resources
