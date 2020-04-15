@@ -82,12 +82,16 @@ This will create a project folder including manage.py, which is a wrapper for dj
 
 
 ## Apps
+Applications include some combination of models, views, templates, template tags, static files, URLs, middleware, etc. They’re generally wired into projects with the INSTALLED_APPS setting and optionally with other mechanisms such as URLconfs, the MIDDLEWARE setting, or template inheritance.
+
 Each project (e.g. basicdjango) can contain multiple apps (e.g. blog, store). In this example, "form" is an app.
 ```
 python manage.py startapp form
 ```
 
 ### Forms
+In HTML, a form is a collection of elements inside <form>...</form> that allow a visitor to do things like enter text, select options, manipulate objects or controls, and so on, and then send that information back to the server.
+
 In this example we define a form class in ``form/forms.py``. More information at:
 * https://docs.djangoproject.com/en/2.2/topics/forms/
 * https://docs.djangoproject.com/en/2.2/ref/forms/fields/
