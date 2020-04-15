@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ip_restriction.IpWhitelister',   # <-- NEW (django-ip-restriction)
 ]
 
 ROOT_URLCONF = 'basicdjango.urls'
@@ -144,5 +145,7 @@ MEDIA_URL = '/media/'  # <-- NEW
 # django-report-builder specific options
 REPORT_BUILDER_INCLUDE = ['form.somemodel', 'upload.document']  # <-- NEW (django-report-builder)
 
-
+# django-ip-restriction (https://pypi.org/project/django-ip-restriction/)
+#ALLOWED_IPS = ['192.168.0.1', '192.168.0.2', '192.168.0.3']
+ALLOWED_IPS = ['0.0.0.0/1']  # CIDR notation
 
