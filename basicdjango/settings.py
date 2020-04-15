@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_=dpe5dap9@3f0sq&)@%7e%357)qawg0=+i$kht!cj37e1$sd$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['woebbeking.pythonanywhere.com']
 
 
 # Application definition
@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'form',  # <-- NEW
     'upload',  # <-- NEW
+    'report_builder',  # <-- NEW (django-report-builder)
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',  # <-- NEW (django-report-builder)
+                'django.template.context_processors.media',  # <-- NEW (django-report-builder)
             ],
         },
     },
@@ -137,3 +140,9 @@ STATIC_URL = '/static/'
 # Prepare for file uploads into /media/
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # <-- NEW
 MEDIA_URL = '/media/'  # <-- NEW
+
+# django-report-builder specific options
+REPORT_BUILDER_INCLUDE = ['form.somemodel', 'upload.document']  # <-- NEW (django-report-builder)
+
+
+

@@ -23,8 +23,9 @@ admin.site.index_title = "Welcome to BasicDjango"  # <--NEW
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('form/', include('form.urls')),  # <--NEW
-    #path('', include('form.urls')),  # <--NEW, in case you want to redirect to the form directly
-    path('upload/', include('upload.urls'))
+    path('', include('form.urls')),  # <--NEW, in case you want to redirect to the form directly
+    path('upload/', include('upload.urls')),
+    path('report/', include('report_builder.urls'))  # <-- NEW (django-report-builder)
 ]
 
 
