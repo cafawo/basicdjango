@@ -1,0 +1,11 @@
+-f /usr/share/pip-wheels
+Django==2.2.5
+django-report-builder==6.3.2
+djangorestframework==3.11.0
+et-xmlfile==1.0.1
+jdcal==1.4.1
+openpyxl==3.0.3
+python-dateutil==2.8.1
+pytz==2019.3
+six==1.14.0
+sqlparse==0.3.1
