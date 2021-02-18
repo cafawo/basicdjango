@@ -18,7 +18,7 @@ and should look like this:
 ## Requirements:
 * Python 3+ environment (I use Conda) with Django 2.2+. If you use Conda, you can create the environment from django.yaml (included).
 ```
-conda env create -f django.yml
+conda env create -f django.yaml
 ```
 
 
