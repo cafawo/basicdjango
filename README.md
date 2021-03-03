@@ -131,6 +131,20 @@ DATABASES = {
 python manage.py migrate 
 ```
 
+## Fetch data using Django's SQL connection directly
+```Python
+from django.db import connection
+
+with connection.cursor() as cursor:
+    cursor.execute("""SELECT * FROM table""")
+    result = cursor.fetchall()
+print(result)
+
+# When using pandas as pd this is even simpler:
+result = pd.read_sql("""SELECT * FROM table""", connection)
+print(result)
+```
+
 
 ## Migrate an app
 1. Create migrations
