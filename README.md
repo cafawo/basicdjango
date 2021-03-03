@@ -143,6 +143,8 @@ print(result)
 # When using pandas as pd this is even simpler:
 result = pd.read_sql("""SELECT * FROM table""", connection)
 print(result)
+# Hint: when serving data as JSON from pandas, this might help:
+result.to_dict('list')
 ```
 
 
