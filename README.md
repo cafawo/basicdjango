@@ -222,6 +222,8 @@ ALLOWED_HOSTS = ["myusername.pythonanywhere.com"]  # <- CHANGE
 python manage.py collectstatic
 ```
 
+**Do not forget to manually upload unversioned files, e.g. your .env or local.ini file if you use one**
+
 
 # Further resources
 * Very well written tutorial that covers all the basics: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
